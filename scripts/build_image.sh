@@ -14,6 +14,6 @@ source "$SUBNET_EVM_PATH"/scripts/versions.sh
 source "$SUBNET_EVM_PATH"/scripts/constants.sh
 
 echo "Building Docker Image: $DOCKERHUB_REPO:$BUILD_IMAGE_ID"
-docker build -t "$DOCKERHUB_REPO:$BUILD_IMAGE_ID" "$SUBNET_EVM_PATH" -f "$SUBNET_EVM_PATH/Dockerfile.container" \
+docker build -t "$DOCKERHUB_REPO:$BUILD_IMAGE_ID" "$SUBNET_EVM_PATH" -f "$SUBNET_EVM_PATH/container/Dockerfile.container" \
   --build-arg SUBNET_EVM_COMMIT="$SUBNET_EVM_COMMIT" \
   --build-arg CURRENT_BRANCH="$CURRENT_BRANCH"
