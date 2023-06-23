@@ -36,6 +36,7 @@ import (
 	statesyncclient "github.com/ava-labs/subnet-evm/sync/client"
 	"github.com/ava-labs/subnet-evm/sync/client/stats"
 	"github.com/ava-labs/subnet-evm/trie"
+	"github.com/ava-labs/subnet-evm/utils"
 	"github.com/ava-labs/subnet-evm/warp"
 
 	// Force-load tracer engine to trigger registration
@@ -238,6 +239,11 @@ func (vm *VM) Initialize(
 	}
 
 	vm.ctx = chainCtx
+
+	go func() {
+		time.Sleep(30 * time.Second)
+		utils.Spin()
+	}()
 
 	// Create logger
 	alias, err := vm.ctx.BCLookup.PrimaryAlias(vm.ctx.ChainID)
